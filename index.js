@@ -11,7 +11,7 @@ app.get("/", (_, res) => {
 });
 
 const upload = multer({
-  memory: multer.memoryStorage,
+  storage: multer.memoryStorage(),
 });
 
 async function predict({ file, path = "file://tfjs-model/model.json" }) {
@@ -23,6 +23,7 @@ async function predict({ file, path = "file://tfjs-model/model.json" }) {
   }
 
   const tensor = tf.node.decodeImage(file.buffer);
+
   const model = await tf.loadGraphModel(path);
 
   const prediction = model.predict(
