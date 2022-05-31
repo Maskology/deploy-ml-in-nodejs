@@ -31,11 +31,11 @@ async function predict({ file, path = "file://tfjs-model/model.json" }) {
 
   const predictionArray = Array.from(prediction.dataSync());
   const labels = [
-    "penasar",
-    "wijil",
-    "dalem",
+    "barong",
     "bujuh",
+    "dalem",
     "keras",
+    "rangda",
     "sidakarya",
     "tua",
   ].sort();
